@@ -9,16 +9,10 @@ function Feedback() {
     let dispatch = useDispatch()
     let { cid } = useParams()
     let { currentUser } = useSelector((state) => state.userLoginReducer);
-    let { isCommunityPending, communityStatus, communityArray, communityErrorOccurred, communityErrMsg } = useSelector((state) => state.getCommunityReducer);
+    let { isCommunityPending, communityArray, } = useSelector((state) => state.getCommunityReducer);
     let [f, setF] = useState(false)
-    let [arr, setArr] = useState([])
-    let [userType, setUserType] = useState()
     useEffect(() => {
-        setArr(communityArray.filter((ele) => {
-            return ele.id == cid
-        })[0])
         setF(true)
-        setUserType(localStorage.getItem('userType'))
     })
     let [text, setText] = useState("")
     async function commentSubmit() {
@@ -29,7 +23,7 @@ function Feedback() {
             time: new Date()
         })
         console.log(res.data.message)
-        if (res.data.message == "Feedback updated successfully") {
+        if (res.data.message === "Feedback updated successfully") {
             dispatch(getCommunityThunk(currentUser.community))
         }
     }
@@ -43,23 +37,23 @@ function Feedback() {
                 <h3>Feedback</h3>
                 <p>Give your opinios and feedbacks here</p>
                 {f && communityArray.map((ele) => {
-                    if (ele.id == cid) {
+                    if (ele.id === cid) {
                         return (
                             <div>
                                 {ele.feedback.map((com) => {
-                                    return (<div className={`border border-1 p-1 m-3 ${com.username == currentUser.username ? "text-end" : ""} rounded rounded-3 bg-light`}>
+                                    return (<div className={`border border-1 p-1 m-3 ${com.username === currentUser.username ? "text-end" : ""} rounded rounded-3 bg-light`}>
                                         <b style={{
                                             color: `${communityArray.filter((comarrele) => {
-                                                if (comarrele.id == cid) {
+                                                if (comarrele.id === cid) {
                                                     return comarrele
                                                 }
                                             })[0].admins.map((arrele) => arrele.username).includes(com.username) ? "blue" : ""}`
-                                        }}>{com.username == currentUser.username ? "You" : cap(com.username)}</b>
+                                        }}>{com.username === currentUser.username ? "You" : cap(com.username)}</b>
                                         <br />
                                         {com.comment}
                                     </div>)
                                 })}
-                                {ele.feedback.length == 0 && <p>No comments yet</p>}
+                                {ele.feedback.length === 0 && <p>No comments yet</p>}
                                 < div >
                                     <div>
                                         <input className='form-control' type='text' placeholder='Add a comment' onChange={(e) => setText(e.target.value)} />
