@@ -15,7 +15,7 @@ function Signin() {
     } = useForm();
     let navigate = useNavigate();
 
-    let { isUserPending, currentUser, userLoginStatus, userErrorOccurred, userErrMsg } =
+    let { isUserPending, userLoginStatus, userErrorOccurred, userErrMsg } =
         useSelector((state) => state.userLoginReducer);
     let dispatch = useDispatch();
 

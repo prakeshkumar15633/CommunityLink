@@ -3,29 +3,25 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ReactLoading from 'react-loading';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getCommunityThunk } from '../../../redux/slices/communitySlice';
 
 function Event() {
     let dispatch = useDispatch()
-    // let navigate = useNavigate()
-    let path = useLocation().pathname.split('/')
     let { cid} = useParams()
     let { currentUser, } = useSelector((state) => state.userLoginReducer);
     let { isCommunityPending, communityArray } = useSelector((state) => state.getCommunityReducer);
-    // let [textarea, setTextarea] = useState()
     let [arr, setArr] = useState()
-    // let [index, setIndex] = useState(-1)
     function cap(s) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
     useEffect(() => {
         if (arr !== undefined) {
-            setArr(arr = communityArray.filter((ele) => {
+            setArr(communityArray.filter((ele) => {
                 return ele.id === cid
             })[0])
         }
-    })
+    },[arr,cid,communityArray])
     // async function editAnnouncement(ind) {
     //     let res = await axios.put("http://localhost:4000/com-admin-api/announcement/edit", {
     //         id: cid,
@@ -80,9 +76,6 @@ function Event() {
         else {
             console.log(res.data.message)
         }
-    }
-    function cap(s) {
-        return s.charAt(0).toUpperCase() + s.slice(1)
     }
     return (
         <div className='pt-3 pb-3'>

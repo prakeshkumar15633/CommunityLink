@@ -8,7 +8,7 @@ function Footer() {
         <div className='bg-black'>
             <div className="footer-element text-light p-3 my-auto row" style={{width:'100vw'}}>
                 <div className="col">
-                <img className='d-block mx-auto' src={logo} style={{height:'50px'}}/>
+                <img className='d-block mx-auto' src={logo} style={{height:'50px'}} alt="img not found"/>
                 </div>
                 <div className="col">
                     <button className='btn btn-success d-block mx-auto' onClick={()=>navigate('/')}>Explore</button>

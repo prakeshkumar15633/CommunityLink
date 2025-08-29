@@ -13,7 +13,7 @@ function Feedback() {
     let [f, setF] = useState(false)
     useEffect(() => {
         setF(true)
-    })
+    },[f])
     let [text, setText] = useState("")
     async function commentSubmit() {
         let res = await axios.put('http://localhost:4000/user-api/feedback', {
@@ -45,7 +45,10 @@ function Feedback() {
                                         <b style={{
                                             color: `${communityArray.filter((comarrele) => {
                                                 if (comarrele.id === cid) {
-                                                    return comarrele
+                                                    return true
+                                                }
+                                                else{
+                                                    return false;
                                                 }
                                             })[0].admins.map((arrele) => arrele.username).includes(com.username) ? "blue" : ""}`
                                         }}>{com.username === currentUser.username ? "You" : cap(com.username)}</b>
@@ -64,6 +67,9 @@ function Feedback() {
                                 </div>
                             </div>
                         )
+                    }
+                    else{
+                        return null
                     }
                 })}
             </div >}

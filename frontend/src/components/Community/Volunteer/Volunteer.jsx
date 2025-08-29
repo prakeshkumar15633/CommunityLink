@@ -16,7 +16,7 @@ function Volunteer() {
             username: currentUser.username
         })
         console.log(res.data.message)
-        if (res.data.message == "Registered for volunteering successfully") {
+        if (res.data.message === "Registered for volunteering successfully") {
             dispatch(getCommunityThunk(currentUser.community))
         }
     }
@@ -29,11 +29,11 @@ function Volunteer() {
             {!isCommunityPending && <div>
                 <h3>Volunteer</h3>
                 {communityArray.map((ele) => {
-                    if (ele.id == cid) {
+                    if (ele.id === cid) {
                         return (
                             <div>
                                 {ele.event.filter((event) => {
-                                    return event.type == 'public'
+                                    return event.type === 'public'
                                 }).map((eve) => {
                                     return (<div className='p-2'>
                                         <div className='col border border-1 rounded-3 p-3 bg-light'>
@@ -55,12 +55,18 @@ function Volunteer() {
                             </div>
                         )
                     }
+                    else{
+                        return null
+                    }
                 })}
                 {communityArray.filter((ele) => {
-                    if (ele.id == cid) {
+                    if (ele.id === cid) {
                         return true
                     }
-                })[0].event.length == 0 && <p>No events yet to register for volunteering</p>}
+                    else{
+                        return false
+                    }
+                })[0].event.length === 0 && <p>No events yet to register for volunteering</p>}
             </div>}
         </div>
     )

@@ -7,7 +7,7 @@ function CommunityNavbar() {
     let path = useLocation().pathname.split('/')
     let { currentUser, } =
         useSelector((state) => state.userLoginReducer);
-    let arr = [
+    let [arr] = useState([
         {
             name: "Manage",
             path: ""
@@ -48,7 +48,7 @@ function CommunityNavbar() {
             name: "Visitor",
             path: "visitor"
         }
-    ]
+    ])
     let [farr, setFarr] = useState([false, false, false, false, false, false, false, false, false, false])
     let style = {
         // backgroundImage: 'radial-gradient(ellipse at 0% 50%, rgb(0, 0, 255, 1),rgb(0, 0, 255, 0))'
@@ -74,7 +74,7 @@ function CommunityNavbar() {
             })
             setFarr(ar)
         }
-    })
+    },[farr,path,arr])
     return (
         <div className='comnavbar p-3'>
             <ul className="nav text-center" style={{ fontSize: '1.3rem' }}>
@@ -87,6 +87,9 @@ function CommunityNavbar() {
                                 </NavLink>
                             </li>
                         )
+                    }
+                    else{
+                        return null
                     }
                 })}
             </ul>

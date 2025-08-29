@@ -10,8 +10,7 @@ function Sports() {
     let dispatch = useDispatch()
     let { cid } = useParams()
     let { currentUser, } = useSelector((state) => state.userLoginReducer);
-    let { isCommunityPending, communityStatus, communityArray, communityErrorOccurred, communityErrMsg } = useSelector((state) => state.getCommunityReducer);
-    let [option, setOption] = useState(1)
+    let { isCommunityPending, communityArray } = useSelector((state) => state.getCommunityReducer);
     let [reserve, setReserve] = useState(true)
     let [index, setIndex] = useState(-1)
     let [id, setId] = useState()
@@ -82,7 +81,7 @@ function Sports() {
             }
         })
         console.log(res.data.message)
-        if (res.data.message == "Slot booked successfully") {
+        if (res.data.message === "Slot booked successfully") {
             dispatch(getCommunityThunk(currentUser.community))
         }
     }
@@ -96,7 +95,7 @@ function Sports() {
             noOfCourts: obj.noofCourts,
             slots: []
         })
-        if (res.data.message == "Sports added successfully") {
+        if (res.data.message === "Sports added successfully") {
             dispatch(getCommunityThunk(currentUser.community))
         }
         else {
@@ -108,6 +107,7 @@ function Sports() {
         let retArr = [], temp, i, j;
         arr.map((ele) => {
             retArr.push(ele)
+            return null
         })
         for (i = 0; i < retArr.length - 1; i++) {
             for (j = 0; j < retArr.length - i - 1; j++) {
@@ -116,7 +116,7 @@ function Sports() {
                     retArr[j] = retArr[j + 1];
                     retArr[j + 1] = temp;
                 }
-                else if (retArr[j].date == retArr[j + 1].date) {
+                else if (retArr[j].date === retArr[j + 1].date) {
                     if (retArr[j].slot > retArr[j + 1].slot) {
                         temp = retArr[j];
                         retArr[j] = retArr[j + 1];
@@ -132,7 +132,7 @@ function Sports() {
         <div className='pt-3 pb-3'>
             {isCommunityPending && <ReactLoading className="mx-auto" type={'spinningBubbles'} color={'grey'} height={100} width={100} />}
             {!isCommunityPending && <div>
-                {localStorage.getItem('userType') == 'comAdmin' && <div>
+                {localStorage.getItem('userType') === 'comAdmin' && <div>
                     <h3>Register a Sport</h3>
                     {f && <button className='btn btn-success px-3' onClick={() => setF(false)}>New Sport</button>}
                     {!f && <button className='btn btn-success mb-3 px-3' onClick={() => setF(true)}>Back</button>}
@@ -174,7 +174,7 @@ function Sports() {
                 </div>}
                 <h3 className='mt-2 mb-3'>Sports</h3>
                 {communityArray.map((ele) => {
-                    if (ele.id == cid) {
+                    if (ele.id === cid) {
                         return (
                             <div className='row row-cols-1 row-cols-sm-1 row-cols-md-2'>
                                 {ele.sports.map((sport, ind) => {
@@ -182,15 +182,15 @@ function Sports() {
                                         <div className='p-2 border border-1 rounded rounded-2 bg-light'>
                                             <h5>{sport.name}</h5>
                                             <p>No of Courts/Fields : {sport.noOfCourts}</p>
-                                            {index != ind && <button className='btn btn-success' onClick={() => {
+                                            {index !== ind && <button className='btn btn-success' onClick={() => {
                                                 setReserve(false)
                                                 setIndex(ind)
                                             }}>Reserve Court</button>}
-                                            {!reserve && index == ind && <button className="btn btn-primary m-3 mr-2" onClick={() => {
+                                            {!reserve && index === ind && <button className="btn btn-primary m-3 mr-2" onClick={() => {
                                                 setIndex(-1)
                                                 setReserve(true)
                                             }}>Back</button>}
-                                            {!reserve && index == ind && <form
+                                            {!reserve && index === ind && <form
                                                 className="w-100 ps-3 pe-3"
                                                 onSubmit={handleSubmit(handleFormSubmit)}
                                             >
@@ -209,7 +209,7 @@ function Sports() {
                                                 </div>
                                                 <div className='mb-3'>
                                                     <label className='form-label' htmlFor='option'>Reservation Slot :</label>
-                                                    <select className='form-control' required onChange={(e) => setOption(e.target.value)}
+                                                    <select className='form-control' required
                                                         {...register("option", {
                                                             required: true
                                                         })}
@@ -232,16 +232,22 @@ function Sports() {
                             </div>
                         )
                     }
+                    else{
+                        return null
+                    }
                 })}
                 {communityArray.filter((ele) => {
-                    if (ele.id == cid) {
+                    if (ele.id === cid) {
                         return true
                     }
-                })[0].sports.length == 0 && <p>No sports registered yet</p>}
-                {localStorage.getItem('userType') == 'comAdmin' && <div className='mt-3'>
+                    else{
+                        return null
+                    }
+                })[0].sports.length === 0 && <p>No sports registered yet</p>}
+                {localStorage.getItem('userType') === 'comAdmin' && <div className='mt-3'>
                     <h3 className='mb-3'>Sports Reserved</h3>
                     {communityArray.map((ele) => {
-                        if (ele.id == cid) {
+                        if (ele.id === cid) {
                             return (<div className='row row-cols-1 row-cols-sm-1 row-cols-md-2'>
                                 {ele.sports.map((sport) => {
                                     return (<div>
@@ -260,6 +266,9 @@ function Sports() {
                                     </div>)
                                 })}
                             </div>)
+                        }
+                        else{
+                            return null
                         }
                     })}
                 </div>}

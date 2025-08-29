@@ -1,12 +1,10 @@
 import axios from 'axios';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import './Signup.css';
 
 function Signup({ fun }) {
     let [err, setErr] = useState('')
-    let navigate = useNavigate();
     let {
         register,
         handleSubmit,
@@ -17,7 +15,7 @@ function Signup({ fun }) {
         newUser.community = []
         newUser.visitor = []
         const res = await axios.post('http://localhost:4000/user-api/user', newUser)
-        if (res.data.message == "User created") {
+        if (res.data.message === "User created") {
             fun(1)
         }
         else {

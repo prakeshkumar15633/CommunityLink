@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ReactLoading from 'react-loading';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,14 +11,6 @@ function Business() {
     let { cid } = useParams()
     let { currentUser } = useSelector((state) => state.userLoginReducer);
     let { isCommunityPending, communityArray } = useSelector((state) => state.getCommunityReducer);
-    let [arr, setArr] = useState()
-    useEffect(() => {
-        if (arr !== undefined) {
-            setArr(arr = communityArray.filter((ele) => {
-                return ele.id === cid
-            })[0])
-        }
-    })
     let {
         register,
         handleSubmit,

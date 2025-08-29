@@ -162,7 +162,7 @@ function DiscussionForumCard() {
                 })[0])
             }
         }
-    },[])
+    },[cid,id,communityArray,f,ff,obj])
     function cap(s) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }

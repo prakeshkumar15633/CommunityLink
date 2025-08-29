@@ -12,14 +12,14 @@ function Community() {
         handleSubmit,
         formState: { errors },
     } = useForm();
-    let [err, setErr] = useState('')
+    // let [err, setErr] = useState('')
     let [formErr, setFormErr] = useState("")
     let [f, setF] = useState(true)
     let [submitButton, setSubmitButton] = useState(false)
     let navigate = useNavigate()
     let { currentUser } =
         useSelector((state) => state.userLoginReducer);
-    let { isCommunityPending, communityStatus, communityArray, communityErrorOccurred, communityErrMsg } =
+    let { isCommunityPending, communityStatus, communityArray } =
         useSelector((state) => state.getCommunityReducer);
     let dispatch = useDispatch();
     // communityArray = [
@@ -245,15 +245,16 @@ function Community() {
     // }
     function remove(obj, st) {
         let keys = Object.keys(obj)
-        keys = keys.filter(obj => obj != st)
+        keys = keys.filter(obj => obj !== st)
         let newObj = {}
         keys.map((key) => {
             newObj[key] = obj[key]
+            return null
         })
         return newObj
     }
     useEffect(() => {
-        if (communityStatus == false) {
+        if (communityStatus === false) {
             dispatch(getCommunityThunk(currentUser.community));
         }
     })
@@ -291,7 +292,7 @@ function Community() {
         community = remove(community, 'houseNo')
         if (submitButton) {
             let res = await axios.post('http://localhost:4000/com-admin-api/community', community)
-            if (res.data.message == 'Community created') {
+            if (res.data.message === 'Community created') {
                 setF(true)
                 setFormErr(res.data.message)
             }
@@ -306,10 +307,9 @@ function Community() {
         console.log(localStorage.getItem('userType'))
     }
     let [ff, setFf] = useState(false)
-    let [submitButton1, setSubmitButton1] = useState(false)
     async function handleFormSubmit1(obj) {
         console.log(obj)
-        if (currentUser.userType == 'resident') {
+        if (currentUser.userType === 'resident') {
             let subObj = {
                 username: currentUser.username,
                 id: obj.id,
@@ -318,24 +318,23 @@ function Community() {
             }
             console.log(subObj)
             let res = await axios.put('http://localhost:4000/user-api/community/resident', subObj)
-            if (res.data.message == "Community joined successfully") {
+            if (res.data.message === "Community joined successfully") {
                 setFf(false)
             }
         }
     }
     let [hoverId, setHoverId] = useState(-1);
     console.log(hoverId)
-    let [submitButton2,setSubmitButton2]=useState(false)
-    async function handleFormSubmit2(obj){
-        if(currentUser.userType=='security'){
-            let subObj={
-                username:currentUser.username,
-                id:obj.id,
-                passwordSecurity:obj.password,
-                userType:"security"
+    async function handleFormSubmit2(obj) {
+        if (currentUser.userType === 'security') {
+            let subObj = {
+                username: currentUser.username,
+                id: obj.id,
+                passwordSecurity: obj.password,
+                userType: "security"
             }
-            let res=await axios.put('http://localhost:4000/security-api/community/security',subObj)
-            if(res.data.message=="Community joined successfully"){
+            let res = await axios.put('http://localhost:4000/security-api/community/security', subObj)
+            if (res.data.message === "Community joined successfully") {
                 setFf(true)
             }
             console.log(res.data.message)
@@ -345,7 +344,7 @@ function Community() {
         <div>
             {isCommunityPending && <ReactLoading className="mx-auto" type={'spinningBubbles'} color={'grey'} height={100} width={100} />}
             {!isCommunityPending && <div className='m-4'>
-                {currentUser.userType == 'resident' && <div className='row' style={{ paddingLeft: '10vw', paddingRight: '10vw' }}>
+                {currentUser.userType === 'resident' && <div className='row' style={{ paddingLeft: '10vw', paddingRight: '10vw' }}>
                     <div className='col'>
                         <div>
                             <h3>Make a community</h3>
@@ -353,7 +352,7 @@ function Community() {
                             {!f && <button className='btn btn-success mb-1 px-3' onClick={() => setF(true)}>Back</button>}
                             {!f && <div className="rounded p-4 border border-1" style={{ backgroundImage: 'linear-gradient(135deg,rgb(242, 242, 242),rgb(248, 249, 250))' }}>
                                 <h1 className="display-3 fs-1 text-center mb-3">Make a community</h1>
-                                {err.length !== 0 && <p className="text-danger fs-3">{err}</p>}
+                                {/* {err.length !== 0 && <p className="text-danger fs-3">{err}</p>} */}
                                 <form
                                     className="w-100 row mx-auto ps-3 pe-3"
                                     onSubmit={handleSubmit(handleFormSubmit)}
@@ -517,15 +516,15 @@ function Community() {
                             </div>}
                             {submitButton && <div>
                                 <p>{formErr}</p>
-                                {formErr == "Community created" && <p>To see updated changes please login again</p>}
+                                {formErr === "Community created" && <p>To see updated changes please login again</p>}
                             </div>}
                         </div>
                         <div>
                             <h3>Your communities</h3>
                             {communityArray.map((ele, ind) => {
                                 if (ele.admins.filter((ele) => {
-                                    return ele.username == currentUser.username
-                                }).length == 1) {
+                                    return ele.username === currentUser.username
+                                }).length === 1) {
                                     return (<div key={ind} className='p-3 border border-1 rounded-3' style={{
                                         width: '250px', backgroundImage: 'linear-gradient(135deg,rgb(242, 242, 242),rgb(248, 249, 250))', cursor: 'pointer', transition: 'transform 0.5s',
                                         transform: ele.id === hoverId ? 'scale(1.05)' : 'scale(1)'
@@ -537,11 +536,14 @@ function Community() {
                                         <p>{ele.address.area}, {ele.address.city}, {ele.address.state}</p>
                                     </div>)
                                 }
+                                else {
+                                    return null
+                                }
                             })}
                             {communityArray.map((ele, ind) => {
                                 if (ele.admins.filter((ele) => {
-                                    return ele.username == currentUser.username
-                                }).length == 1) {
+                                    return ele.username === currentUser.username
+                                }).length === 1) {
                                     return (<div key={ind} className='p-3 border border-1 bg-light rounded-3' style={{ width: '250px' }} onClick={() => {
                                         navigate(`/community/${ele.id}`)
                                     }}>
@@ -549,9 +551,12 @@ function Community() {
                                         <p>{ele.address.area}, {ele.address.city}, {ele.address.state}</p>
                                     </div>)
                                 }
+                                else {
+                                    return null
+                                }
                             }).filter((ele) => {
-                                return ele != undefined
-                            }).length == 0 && <p>Your communities not created yet</p>}
+                                return ele !== undefined
+                            }).length === 0 && <p>Your communities not created yet</p>}
                         </div>
                     </div>
                     <div className='col'>
@@ -561,7 +566,7 @@ function Community() {
                             {ff && <button className='btn btn-success mb-1' onClick={() => setFf(false)}>Back</button>}
                             {ff && <div className="rounded p-4 border border-1" style={{ backgroundImage: 'linear-gradient(135deg,rgb(242, 242, 242),rgb(248, 249, 250))' }}>
                                 <h1 className="display-3 fs-1 text-center mb-3">Join a community</h1>
-                                {err.length !== 0 && <p className="text-danger fs-3">{err}</p>}
+                                {/* {err.length !== 0 && <p className="text-danger fs-3">{err}</p>} */}
                                 <form
                                     className="w-100 row mx-auto ps-3 pe-3"
                                     onSubmit={handleSubmit(handleFormSubmit1)}
@@ -605,9 +610,7 @@ function Community() {
                                             <span className="text-danger">House Number is required</span>
                                         )}
                                     </div>
-                                    <button className="btn btn-success col-sm-6 col-md-4 col-lg-3 d-block mx-auto mb-3" onClick={() => {
-                                        setSubmitButton1(true)
-                                    }}>Submit</button>
+                                    <button className="btn btn-success col-sm-6 col-md-4 col-lg-3 d-block mx-auto mb-3">Submit</button>
                                 </form>
                             </div>}
                         </div>
@@ -615,11 +618,11 @@ function Community() {
                             <h3>Joined communities</h3>
                             {communityArray.map((ele, ind) => {
                                 if (ele.residents.filter((resident) => {
-                                    return resident.username == currentUser.username
-                                }).length == 1) {
+                                    return resident.username === currentUser.username
+                                }).length === 1) {
                                     if (ele.admins.filter((admin) => {
-                                        return admin.username == currentUser.username
-                                    }).length == 0) {
+                                        return admin.username === currentUser.username
+                                    }).length === 0) {
                                         return (<div key={ind} className='p-3 border border-1 rounded-3' style={{ width: '250px', backgroundImage: 'linear-gradient(135deg,rgb(242, 242, 242),rgb(248, 249, 250))', cursor: 'pointer', transition: 'transform 0.5s', transform: ele.id === hoverId ? 'scale(1.05)' : 'scale(1)' }} onMouseEnter={() => setHoverId(ele.id)} onMouseLeave={() => { setHoverId(-1) }} onClick={() => {
                                             setFun('resident')
                                             navigate(`/community/${ele.id}`)
@@ -628,6 +631,9 @@ function Community() {
                                             <p>{ele.address.area}, {ele.address.city}, {ele.address.state}</p>
                                         </div>)
                                     }
+                                    else {
+                                        return null
+                                    }
                                 }
                                 else {
                                     return (<p>You are not present in any community</p>)
@@ -635,11 +641,11 @@ function Community() {
                             })}
                             {communityArray.map((ele, ind) => {
                                 if (ele.residents.filter((resident) => {
-                                    return resident.username == currentUser.username
-                                }).length == 1) {
+                                    return resident.username === currentUser.username
+                                }).length === 1) {
                                     if (ele.admins.filter((admin) => {
-                                        return admin.username == currentUser.username
-                                    }).length == 0) {
+                                        return admin.username === currentUser.username
+                                    }).length === 0) {
                                         return (<div key={ind} className='p-3 border border-1 bg-light rounded-3' style={{ width: '250px' }} onClick={() => {
                                             navigate(`/community/${ele.id}`)
                                         }}>
@@ -647,21 +653,27 @@ function Community() {
                                             <p>{ele.address.area}, {ele.address.city}, {ele.address.state}</p>
                                         </div>)
                                     }
+                                    else {
+                                        return null
+                                    }
+                                }
+                                else {
+                                    return null
                                 }
                             }).filter((ele) => {
-                                return ele != undefined
-                            }).length == 0 && <p>You are not present in any community</p>}
+                                return ele !== undefined
+                            }).length === 0 && <p>You are not present in any community</p>}
                         </div>
                     </div>
                 </div>}
-                {currentUser.userType == "security" && <div>
+                {currentUser.userType === "security" && <div>
                     <div>
                         <h3>Join a community</h3>
                         {!ff && <button className='btn btn-success mb-1' onClick={() => setFf(true)}>Join</button>}
                         {ff && <button className='btn btn-success mb-1' onClick={() => setFf(false)}>Back</button>}
                         {ff && <div className="col-lg-6 col-md-1 sol-sm-12 rounded p-4 border border-1" style={{ backgroundImage: 'linear-gradient(135deg,rgb(242, 242, 242),rgb(248, 249, 250))' }}>
                             <h1 className="display-3 fs-1 text-center mb-3">Join a community</h1>
-                            {err.length !== 0 && <p className="text-danger fs-3">{err}</p>}
+                            {/* {err.length !== 0 && <p className="text-danger fs-3">{err}</p>} */}
                             <form
                                 className="w-100 row mx-auto ps-3 pe-3"
                                 onSubmit={handleSubmit(handleFormSubmit2)}
@@ -692,41 +704,56 @@ function Community() {
                                         <span className="text-danger">Password is required</span>
                                     )}
                                 </div>
-                                <button className="btn btn-success col-sm-6 col-md-4 col-lg-3 d-block mx-auto mb-3" onClick={() => {
-                                    setSubmitButton2(true)
-                                }}>Submit</button>
+                                <button className="btn btn-success col-sm-6 col-md-4 col-lg-3 d-block mx-auto mb-3">Submit</button>
                             </form>
                         </div>}
                     </div>
-                    {ff&&<p>Community joined successfully login again</p>}
+                    {ff && <p>Community joined successfully login again</p>}
                     <h1>Your communities</h1>
-                    {communityArray.map((ele, ind) => {
-                        if (ele.security.includes(currentUser.username)) {
-                            return (<div key={ind} className='p-3 border border-1 rounded-3 bg-light' style={{
-                                width: '250px', cursor: 'pointer', transition: 'transform 0.5s',
-                                transform: ele.id === hoverId ? 'scale(1.05)' : 'scale(1)'
-                            }} onMouseEnter={() => setHoverId(ele.id)} onMouseLeave={() => { setHoverId(-1) }} onClick={() => {
-                                setFun("comAdmin")
-                                navigate(`/community/${ele.id}`)
-                            }}>
+                    {communityArray
+                        .filter((ele) => ele.security.includes(currentUser.username))
+                        .map((ele, ind) => (
+                            <div
+                                key={ind}
+                                className='p-3 border border-1 rounded-3 bg-light'
+                                style={{
+                                    width: '250px',
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.5s',
+                                    transform: ele.id === hoverId ? 'scale(1.05)' : 'scale(1)',
+                                }}
+                                onMouseEnter={() => setHoverId(ele.id)}
+                                onMouseLeave={() => setHoverId(-1)}
+                                onClick={() => {
+                                    setFun("comAdmin");
+                                    navigate(`/community/${ele.id}`);
+                                }}
+                            >
                                 <h4>{ele.name}</h4>
-                                <p>{ele.address.area}, {ele.address.city}, {ele.address.state}</p>
-                            </div>)
-                        }
-                    })}
-                    {communityArray.map((ele, ind) => {
-                        { console.log(ele.security.includes(currentUser.username)) }
-                        if (ele.security.includes(currentUser.username)) {
-                            return (<div key={ind} className='p-3 border border-1 rounded-3' style={{ width: '250px' }} onClick={() => {
-                                navigate(`/community/${ele.id}`)
-                            }}>
+                                <p>
+                                    {ele.address.area}, {ele.address.city}, {ele.address.state}
+                                </p>
+                            </div>
+                        ))}
+                    {communityArray
+                        .filter(ele => ele.security.includes(currentUser.username)) // ✅ keep only joined communities
+                        .map((ele, ind) => (
+                            <div
+                                key={ind}
+                                className="p-3 border border-1 rounded-3"
+                                style={{ width: "250px" }}
+                                onClick={() => navigate(`/community/${ele.id}`)}
+                            >
                                 <h4>{ele.name}</h4>
-                                <p>{ele.address.area}, {ele.address.city}, {ele.address.state}</p>
-                            </div>)
-                        }
-                    }).filter((ele) => {
-                        return ele != undefined
-                    }).length == 0 && <p>No community joined yet</p>}
+                                <p>
+                                    {ele.address.area}, {ele.address.city}, {ele.address.state}
+                                </p>
+                            </div>
+                        ))
+                    }
+                    {communityArray.filter(ele => ele.security.includes(currentUser.username)).length === 0 && (
+                        <p>No community joined yet</p>
+                    )}
                 </div>}
             </div>}
         </div>

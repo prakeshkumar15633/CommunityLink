@@ -24,44 +24,41 @@ function Navbar() {
     let [s2, setS2] = useState({})
     let [s3, setS3] = useState({})
     let [s4, setS4] = useState({})
-    let [s5, setS5] = useState({})
     let [f, setF] = useState(false)
-    let style = {
+    let [style] = useState({
         // backgroundImage: "radial-gradient(rgb(0, 0, 255),rgb(0, 0, 255, 0.25))",
         // backgroundImage:'linear-gradient(-45deg, #df4adf, #520852)',
         backgroundColor: '#B235B2',
         borderRadius: '7px'
-    }
+    })
     let path = useLocation().pathname
     useEffect(() => {
-        if (path == '/') {
+        if (path === '/') {
             setS1(style)
             setS2({})
             setS3({})
             setS4({})
-            setS5({})
         }
-        else if (path == '/login') {
+        else if (path === '/login') {
             setS1({})
             setS2(style)
             setS4({})
-            setS5({})
             setF(false)
         }
-        else if (path == '/communities') {
+        else if (path === '/communities') {
             setS1({})
             setS2({})
             setS3(style)
             setS4({})
         }
-        else if (path == '/user-profile') {
+        else if (path === '/user-profile') {
             setS1({})
             setS2({})
             setS3({})
             setS4(style)
             setF(true)
         }
-    })
+    },[path,style])
     let menuOptions = [
         {
             text: 'Home',
@@ -111,7 +108,7 @@ function Navbar() {
         <div>
             {!dropDownFlag && <div className='row header-element'>
                 <div className='col-3' onClick={()=>navigate('/')} style={{ position: 'relative' }}>
-                    <img className='m-2' src={logo} style={{ height: '55px', position: 'absolute', top: 0, left: 0 }} />
+                    <img className='m-2' src={logo} style={{ height: '55px', position: 'absolute', top: 0, left: 0 }} alt="img not found"/>
                 </div>
                 <div className='col-9 d-flex justify-content-end p-2'>
                     <ul className="nav text-center" style={{ fontSize: '1.3rem' }}>
@@ -158,7 +155,7 @@ function Navbar() {
             {dropDownFlag && <div>
                 <div className='row navbar-menu-container' style={{ padding: '10px' }}>
                     <div className='col-4'>
-                        <img className='p-1 rounded-4' src={logo} height={'70px'} style={{ right: 0 }} />
+                        <img className='p-1 rounded-4' src={logo} height={'70px'} style={{ right: 0 }} alt="img not found"/>
                     </div>
                     <div className='col-8 d-flex justify-content-end'>
                         <HiOutlineBars3 style={{ color: 'black', fontSize: '30px', marginTop: '20px' }} onClick={() => setOpenMenu(true)} />
@@ -168,7 +165,7 @@ function Navbar() {
                     <Box sx={{ width: 250 }} role="presentation" onClick={() => setOpenMenu(false)} onKeyDown={() => setOpenMenu(false)}>
                         <List>
                             {menuOptions.filter((item)=>{
-                                if(item==false){
+                                if(item===false){
                                     return false
                                 }
                                 else{
@@ -178,7 +175,7 @@ function Navbar() {
                                 return(<ListItem key={item.text} disablePadding>
                                     <ListItemButton onClick={() => {
                                         navigate(item.to)
-                                        if (item.text == 'Signout') {
+                                        if (item.text === 'Signout') {
                                             signout()
                                             setF(false)
                                         }

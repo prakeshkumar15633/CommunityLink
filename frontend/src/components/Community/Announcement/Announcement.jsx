@@ -21,7 +21,7 @@ function Announcement() {
     }
     useEffect(() => {
         if (arr !== undefined) {
-            setArr(arr = communityArray.filter((ele) => {
+            setArr(communityArray.filter((ele) => {
                 return ele.id === cid
             })[0])
         }
@@ -31,7 +31,7 @@ function Announcement() {
         else {
             setUserType('resident')
         }
-    })
+    },[arr,cid,communityArray])
     async function editAnnouncement(ind) {
         let res = await axios.put("http://localhost:4000/com-admin-api/announcement/edit", {
             id: cid,
@@ -73,7 +73,7 @@ function Announcement() {
             index: ind
         })
         console.log(res.data.message)
-        if (res.data.message = "Announcement successfully deleted") {
+        if (res.data.message === "Announcement successfully deleted") {
             dispatch(getCommunityThunk(currentUser.community))
         }
     }
