@@ -12,7 +12,7 @@ function DiscussionForum() {
     let navigate = useNavigate()
     let { currentUser, } =
         useSelector((state) => state.userLoginReducer);
-    let { isCommunityPending, communityStatus, communityArray, communityErrorOccurred, communityErrMsg } =
+    let { isCommunityPending, communityArray } =
         useSelector((state) => state.getCommunityReducer);
     let dispatch = useDispatch()
     let [arr, setArr] = useState()

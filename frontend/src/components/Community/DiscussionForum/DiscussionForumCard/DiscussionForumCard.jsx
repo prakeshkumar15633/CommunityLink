@@ -8,7 +8,7 @@ import { getCommunityThunk } from '../../../../redux/slices/communitySlice';
 function DiscussionForumCard() {
     let { cid, id } = useParams()
     let { currentUser, } = useSelector((state) => state.userLoginReducer);
-    let { isCommunityPending, communityArray, communityStatus, communityErrOccurred, communityErrMsg } = useSelector((state) => state.getCommunityReducer);
+    let { isCommunityPending, communityArray } = useSelector((state) => state.getCommunityReducer);
     let [obj, setObj] = useState()
     let [f, setF] = useState(false)
     let [ff, setFF] = useState(true)
@@ -147,18 +147,18 @@ function DiscussionForumCard() {
     // ]
     useEffect(() => {
         if (!f && ff) {
-            if (communityArray != undefined) {
+            if (communityArray !== undefined) {
                 setObj((communityArray.filter((ele) => {
-                    return ele.id == cid
+                    return ele.id === cid
                 }))[0].disforum)
             }
-            if (obj != undefined) {
+            if (obj !== undefined) {
                 setObj(obj.filter((ele) => {
-                    if (ele.id == id) {
+                    if (ele.id === id) {
                         setF(true)
                         setFF(false)
                     }
-                    return ele.id == id
+                    return ele.id === id
                 })[0])
             }
         }
@@ -167,16 +167,16 @@ function DiscussionForumCard() {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
     async function commentSubmit() {
-        if (text != null) {
+        if (text !== null) {
             let newObj = {
                 cid: cid,
                 id: id,
                 username: currentUser.username,
-                userType: localStorage.getItem('userType') == "comAdmin" ? "admin" : "resident",
+                userType: localStorage.getItem('userType') === "comAdmin" ? "admin" : "resident",
                 comment: text
             }
             let res = await axios.put('http://localhost:4000/user-api/discussion-forum/comment', newObj)
-            if (res.data.message == "Comment added successfully") {
+            if (res.data.message === "Comment added successfully") {
                 dispatch(getCommunityThunk(currentUser.community));
                 setMessage("Comment added successfully")
                 setErr(true)
@@ -194,22 +194,22 @@ function DiscussionForumCard() {
             {isCommunityPending && <ReactLoading className="mx-auto" type={'spinningBubbles'} color={'grey'} height={100} width={100} />}
             {!isCommunityPending && <div>
                 {f && communityArray.filter((ele) => {
-                    return ele.id == cid
+                    return ele.id === cid
                 })[0].disforum.map((eleo) => {
-                    if (eleo.id == id) {
+                    if (eleo.id === id) {
                         return (<div>
                             <h3>{eleo.topic}</h3>
                             <p>- {eleo.username}</p>
                             <p>Time : {eleo.time}</p>
                             <div className='m-1 p-2'>
                                 {eleo.comments.map((ele) => {
-                                    return (<div className={`border border-1 p-1 m-3 ${ele.username == currentUser.username ? "text-end" : ""} rounded rounded-3 bg-light`}>
-                                        <b style={{ color: `${ele.userType == "admin" ? "blue" : ""}` }}>{ele.username == currentUser.username ? "You" : cap(ele.username)}</b>
+                                    return (<div className={`border border-1 p-1 m-3 ${ele.username === currentUser.username ? "text-end" : ""} rounded rounded-3 bg-light`}>
+                                        <b style={{ color: `${ele.userType === "admin" ? "blue" : ""}` }}>{ele.username === currentUser.username ? "You" : cap(ele.username)}</b>
                                         <br />
                                         {ele.comment}
                                     </div>)
                                 })}
-                                {eleo.comments.length == 0 && <p>No Comments yet</p>}
+                                {eleo.comments.length === 0 && <p>No Comments yet</p>}
                             </div>
                             <div>
                                 <div>

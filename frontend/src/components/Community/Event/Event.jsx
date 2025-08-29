@@ -8,60 +8,41 @@ import { getCommunityThunk } from '../../../redux/slices/communitySlice';
 
 function Event() {
     let dispatch = useDispatch()
-    let navigate = useNavigate()
+    // let navigate = useNavigate()
     let path = useLocation().pathname.split('/')
-    let { cid, id } = useParams()
+    let { cid} = useParams()
     let { currentUser, } = useSelector((state) => state.userLoginReducer);
-    let { isCommunityPending, communityArray, communityStatus, communityErrOcurred, communityErrMsg } = useSelector((state) => state.getCommunityReducer);
-    let [f, setF] = useState(true)
-    let [f2, setF2] = useState(false)
-    let [edit, setEdit] = useState(true)
-    let [userType, setUserType] = useState("resident")
-    let [textarea, setTextarea] = useState()
+    let { isCommunityPending, communityArray } = useSelector((state) => state.getCommunityReducer);
+    // let [textarea, setTextarea] = useState()
     let [arr, setArr] = useState()
-    let [index, setIndex] = useState(-1)
+    // let [index, setIndex] = useState(-1)
     function cap(s) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
     useEffect(() => {
-        if (arr != undefined) {
+        if (arr !== undefined) {
             setArr(arr = communityArray.filter((ele) => {
-                return ele.id == cid
+                return ele.id === cid
             })[0])
         }
-        if (arr != undefined) {
-            setF2(true)
-        }
-        if (path.length == 4) {
-            setF(true)
-        }
-        else {
-            setF(false)
-        }
-        if (localStorage.getItem('userType') == 'comAdmin') {
-            setUserType('admin')
-        }
-        else {
-            setUserType('resident')
-        }
     })
-    async function editAnnouncement(ind) {
-        let res = await axios.put("http://localhost:4000/com-admin-api/announcement/edit", {
-            id: cid,
-            index: ind,
-            announcement: textarea
-        })
-        if (res.data.message == "Announcement updated successfully") {
-            console.log("Announcement updated successfully")
-            dispatch(getCommunityThunk(currentUser.community));
-        }
-    }
+    // async function editAnnouncement(ind) {
+    //     let res = await axios.put("http://localhost:4000/com-admin-api/announcement/edit", {
+    //         id: cid,
+    //         index: ind,
+    //         announcement: textarea
+    //     })
+    //     if (res.data.message === "Announcement updated successfully") {
+    //         console.log("Announcement updated successfully")
+    //         dispatch(getCommunityThunk(currentUser.community));
+    //     }
+    // }
     let {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    let [err, setErr] = useState('')
+    // let [err, setErr] = useState('')
     let [formErr, setFormErr] = useState("")
     let [formF, setFormF] = useState(true)
     async function handleFormSubmit(event) {
@@ -77,7 +58,7 @@ function Event() {
             volunteer: []
         })
         console.log(res.data.message)
-        if (res.data.message == "Event created successfully") {
+        if (res.data.message === "Event created successfully") {
             setFormErr(res.data.message)
             setFormF(true)
             dispatch(getCommunityThunk(currentUser.community))
@@ -92,7 +73,7 @@ function Event() {
             cid: cid,
             id: idd
         })
-        if (res.data.message == "Event deleted successfully") {
+        if (res.data.message === "Event deleted successfully") {
             console.log(res.data.message)
             dispatch(getCommunityThunk(currentUser.community))
         }
@@ -107,13 +88,13 @@ function Event() {
         <div className='pt-3 pb-3'>
             {isCommunityPending && <ReactLoading className="mx-auto" type={'spinningBubbles'} color={'grey'} height={100} width={100} />}
             {!isCommunityPending&&<div>
-                {localStorage.getItem('userType') == 'comAdmin' && currentUser.userType != 'security' && <div>
+                {localStorage.getItem('userType') === 'comAdmin' && currentUser.userType !== 'security' && <div>
                     <h3>Make an Event</h3>
                     {formF && <button className='btn btn-success px-3' onClick={() => setFormF(false)}>New Event</button>}
                     {!formF && <button className='btn btn-success mb-3 px-3' onClick={() => setFormF(true)}>Back</button>}
                     {!formF && <div className="col-lg-6 col-md-8 col-sm-10 rounded p-2 bg-light border border-1">
                         <h3 className="text-center mb-3">Make an Event</h3>
-                        {err.length !== 0 && <p className="text-danger fs-3">{err}</p>}
+                        {/* {err.length !== 0 && <p className="text-danger fs-3">{err}</p>} */}
                         <form
                             className="w-100 ps-3 pe-3"
                             onSubmit={handleSubmit(handleFormSubmit)}
@@ -194,10 +175,10 @@ function Event() {
                 <h3>Events</h3>
                 <div className='row row-cols-2 mb-3'>
                     {communityArray.filter((ele) => {
-                        return ele.id == cid
-                    })[0].event.length == 0 && <p>No Events yet</p>}
+                        return ele.id === cid
+                    })[0].event.length === 0 && <p>No Events yet</p>}
                     {communityArray.filter((ele) => {
-                        return ele.id == cid
+                        return ele.id === cid
                     })[0].event.map((ele, ind) => {
                         return (<div className='px-3'>
                             <div className='col border border-1 rounded-3 p-3 bg-light'>
@@ -212,7 +193,7 @@ function Event() {
                                         <p>{v}</p>
                                     )
                                 })}
-                                {localStorage.getItem('userType') == 'comAdmin' && currentUser.userType != 'security' && <button className='btn btn-danger' onClick={() => { deleteEventSubmit(ele.id) }}>Delete</button>}
+                                {localStorage.getItem('userType') === 'comAdmin' && currentUser.userType !== 'security' && <button className='btn btn-danger' onClick={() => { deleteEventSubmit(ele.id) }}>Delete</button>}
                             </div>
                         </div>)
                     })}

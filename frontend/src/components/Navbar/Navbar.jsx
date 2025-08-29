@@ -1,21 +1,21 @@
-import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import './Navbar.css'
-import { FaUser } from "react-icons/fa";
-import { useDispatch } from 'react-redux';
-import { resetUserState } from '../../redux/slices/userSlice';
-import { resetCommunityState } from '../../redux/slices/communitySlice';
-import logo from '../../assets/logo_cropped_2.png'
-import { HiOutlineBars3 } from "react-icons/hi2";
+import HomeIcon from "@mui/icons-material/Home";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List"
+import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
+import { useEffect, useState } from 'react';
+import { FaUser } from "react-icons/fa";
+import { HiOutlineBars3 } from "react-icons/hi2";
 import { MdOutlineLogin } from "react-icons/md";
+import { useDispatch } from 'react-redux';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo_cropped_2.png';
+import { resetCommunityState } from '../../redux/slices/communitySlice';
+import { resetUserState } from '../../redux/slices/userSlice';
+import './Navbar.css';
 
 function Navbar() {
     let navigate = useNavigate()

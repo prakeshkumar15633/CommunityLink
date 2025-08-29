@@ -12,7 +12,7 @@ function CommunityNavbar() {
             name: "Manage",
             path: ""
         },
-        currentUser.userType != "security" && {
+        currentUser.userType !== "security" && {
             name: "Discussion Forum",
             path: "discussion-forums"
         },
@@ -20,7 +20,7 @@ function CommunityNavbar() {
             name: "Announcements",
             path: "announcements"
         },
-        currentUser.userType != "security" && {
+        currentUser.userType !== "security" && {
             name: "Poll",
             path: "polls"
         },
@@ -32,15 +32,15 @@ function CommunityNavbar() {
             name: "Events",
             path: "events"
         },
-        currentUser.userType != "security" && {
+        currentUser.userType !== "security" && {
             name: "Feedback",
             path: "feedback"
         },
-        currentUser.userType != "security" && {
+        currentUser.userType !== "security" && {
             name: "Sports Reservation",
             path: "sports"
         },
-        currentUser.userType != "security" && {
+        currentUser.userType !== "security" && {
             name: "Volunteer",
             path: "volunteer"
         },
@@ -57,7 +57,7 @@ function CommunityNavbar() {
         borderRadius:'7px'
     }
     useEffect(() => {
-        if (path.length == 3) {
+        if (path.length === 3) {
             let ar = [false, false, false, false, false, false, false, false, false, false]
             ar[0] = true
             setFarr(ar)
@@ -65,7 +65,7 @@ function CommunityNavbar() {
         else {
             let ar = [false, false, false, false, false, false, false, false, false, false]
             ar = ar.map((ele, ind) => {
-                if (arr[ind].path == path[3]) {
+                if (arr[ind].path === path[3]) {
                     return true
                 }
                 else {
