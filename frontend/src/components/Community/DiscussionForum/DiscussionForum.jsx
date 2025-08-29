@@ -25,7 +25,7 @@ function DiscussionForum() {
     let [formF, setFormF] = useState(true)
     useEffect(() => {
         setF(true)
-    })
+    },[])
     async function handleFormSubmit(disforum) {
         let res = await axios.put('http://localhost:4000/com-admin-api/discussion-forum', {
             cid: cid,
@@ -108,10 +108,16 @@ function DiscussionForum() {
                                 })
                             )
                         }
+                        else{
+                            return null
+                        }
                     })}
                     {f && communityArray.filter((ele) => {
                         if (ele.id === cid) {
                             return true
+                        }
+                        else{
+                            return null
                         }
                     })[0].disforum.length === 0 && <p>No Discussion Forums created yet</p>}
                 </div>

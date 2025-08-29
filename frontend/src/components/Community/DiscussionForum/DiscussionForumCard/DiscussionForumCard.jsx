@@ -162,7 +162,7 @@ function DiscussionForumCard() {
                 })[0])
             }
         }
-    })
+    },[])
     function cap(s) {
         return s.charAt(0).toUpperCase() + s.slice(1)
     }
@@ -221,6 +221,9 @@ function DiscussionForumCard() {
                             </div>
                             {err && <p className='text-center'>{message}</p>}
                         </div>)
+                    }
+                    else{
+                        return null
                     }
                 })
                 }
