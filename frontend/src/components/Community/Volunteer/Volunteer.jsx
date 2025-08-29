@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import axios from 'axios';
+import ReactLoading from 'react-loading';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getCommunityThunk } from '../../../redux/slices/communitySlice';
-import axios from 'axios';
-import ReactLoading from 'react-loading'
 
 function Volunteer() {
     let dispatch = useDispatch()

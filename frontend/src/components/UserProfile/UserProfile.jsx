@@ -1,7 +1,6 @@
-import React, { useEffect } from "react"
-import { useNavigate, Outlet } from "react-router-dom"
 import { useSelector } from "react-redux";
-import './UserProfile.css'
+import { useNavigate } from "react-router-dom";
+import './UserProfile.css';
 
 function UserProfile() {
     let navigate = useNavigate()

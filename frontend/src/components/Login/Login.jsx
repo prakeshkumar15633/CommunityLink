@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import Signup from '../Signup/Signup'
+import { useState } from 'react'
 import Signin from '../Signin/Signin'
+import Signup from '../Signup/Signup'
 import './Login.css'
 
 function Sign() {

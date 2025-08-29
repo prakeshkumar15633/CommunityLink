@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { getCommunityThunk } from '../../redux/slices/communitySlice';
-import { useForm } from 'react-hook-form';
-import ReactLoading from 'react-loading'
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import ReactLoading from 'react-loading';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getCommunityThunk } from '../../redux/slices/communitySlice';
 
 function Community() {
     let {

@@ -1,9 +1,8 @@
-import { useForm } from "react-hook-form";
+import axios from 'axios';
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios'
-import './Signup.css'
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import './Signup.css';
 
 function Signup({ fun }) {
     let [err, setErr] = useState('')

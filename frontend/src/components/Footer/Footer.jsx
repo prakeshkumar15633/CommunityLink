@@ -1,7 +1,6 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo_cropped_2.png'
 import './Footer.css'
-import { useNavigate } from 'react-router-dom'
 
 function Footer() {
     let navigate=useNavigate()

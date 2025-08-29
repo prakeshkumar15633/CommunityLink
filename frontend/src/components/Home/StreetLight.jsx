@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import light from '../../assets/street_light.png'
 import './StreetLight.css'
 

@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import ReactLoading from 'react-loading';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { getCommunityThunk } from '../../../redux/slices/communitySlice';
-import ReactLoading from 'react-loading'
 
 function Sports() {
     let dispatch = useDispatch()

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate, Outlet, useLocation } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { getCommunityThunk } from '../../../redux/slices/communitySlice'
 import axios from 'axios'
-import { useForm } from 'react-hook-form';
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import ReactLoading from 'react-loading'
+import { useDispatch, useSelector } from 'react-redux'
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { getCommunityThunk } from '../../../redux/slices/communitySlice'
 
 function DiscussionForum() {
     let { cid } = useParams()

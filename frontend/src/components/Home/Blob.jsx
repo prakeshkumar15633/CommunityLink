@@ -1,4 +1,3 @@
-import React from 'react'
 import './Blob.css'
 
 function Blob(params) {

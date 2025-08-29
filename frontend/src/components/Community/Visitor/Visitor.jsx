@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import ReactLoading from 'react-loading';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { getCommunityThunk } from '../../../redux/slices/communitySlice';
 import { visitorThunk } from '../../../redux/slices/visitorSlice';
-import ReactLoading from 'react-loading'
 
 function Visitor() {
     let { cid } = useParams()
