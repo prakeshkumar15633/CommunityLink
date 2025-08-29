@@ -1,0 +1,829 @@
+:root{
+    --time: 1s;
+}
+
+@keyframes home-card {
+    0%{
+        width:40%;
+        height:40%;
+        top:30%;
+        left:30%;
+    }
+
+    50% {
+        width:40%;
+        height:40%;
+        top:30%;
+        left:30%;
+    }
+
+    50.00001%{
+        width:20%;
+        height:20%;
+        top:40%;
+        left:40%
+    }
+
+    100% {
+        width:100%;
+        height: 100%;
+        top:0;
+        left:0;
+    }
+}
+
+.homea {
+    width: 20%;
+    height: 20%;
+    background-color: red;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: -2;
+}
+
+.homea.homeb {
+    animation-name: home-card;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    width:100%;
+    height: 100%;
+    top:0;
+    left:0;
+}
+
+@keyframes home-card1 {
+    0% {
+        width: 10%;
+        height: 10%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home1a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+    top: 30%;
+    left: 30%;
+    z-index: -1;
+}
+
+.home1a.home1b {
+    animation-name: home-card1;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card2 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 20% 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        border-radius: 0%;
+    }
+}
+
+.home2a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 30%;
+    left: 40%;
+    z-index: -1;
+}
+
+.home2a.home2b {
+    animation-name: home-card2;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+    border-radius: 0%;
+}
+
+@keyframes home-card3 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 20%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home3a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 30%;
+    left: 50%;
+    z-index: -1;
+}
+
+.home3a.home3b {
+    animation-name: home-card3;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card4 {
+    0% {
+        width: 10%;
+        height: 10%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home4a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+    top: 30%;
+    left: 60%;
+    z-index: -1;
+}
+
+.home4a.home4b {
+    animation-name: home-card4;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card5 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 20% 0;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home5a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 40%;
+    left: 30%;
+    z-index: -1;
+}
+
+.home5a.home5b {
+    animation-name: home-card5;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card6 {
+    0% {
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 40%;
+        border-radius: 20% 0 0 20%;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 30%;
+        border-radius: 20% 0 0 20%;
+    }
+
+    49.99999%{
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 40%;
+        border-radius: 20% 20% 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 40%;
+        border-radius: 20% 20% 0 0;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        top: 30%;
+        left: 40%;
+        border-radius: 20% 20% 0 0;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 40%;
+        border-radius: 20% 20% 0 0;
+    }
+}
+
+.home6a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: red;
+    top: 40%;
+    left: 40%;
+}
+
+.home6a.home6b {
+    animation-name: home-card6;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card7 {
+    0% {
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 50%;
+        border-radius: 20% 20% 0 0;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        top: 30%;
+        left: 50%;
+        border-radius: 20% 20% 0 0;
+    }
+
+    49.99999%{
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 50%;
+        border-radius: 20% 20% 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 50%;
+        border-radius: 0 20% 20% 0;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 60%;
+        border-radius: 0 20% 20% 0;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        top: 40%;
+        left: 50%;
+        border-radius: 0 20% 20% 0;
+    }
+}
+
+.home7a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: red;
+    top: 40%;
+    left: 50%;
+}
+
+.home7a.home7b {
+    animation-name: home-card7;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card8 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 20%;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        border-radius: 0%;
+    }
+}
+
+.home8a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 40%;
+    left: 60%;
+    z-index: -1;
+}
+
+.home8a.home8b {
+    animation-name: home-card8;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+    border-radius: 0%;
+}
+
+@keyframes home-card9 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 20% 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        border-radius: 0%;
+    }
+}
+
+.home9a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 50%;
+    left: 30%;
+    z-index: -1;
+}
+
+.home9a.home9b {
+    animation-name: home-card9;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+    border-radius: 0%;
+}
+
+@keyframes home-card10 {
+    0% {
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 40%;
+        border-radius: 0 0 20% 20%;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        top: 60%;
+        left: 40%;
+        border-radius: 0 0 20% 20%;
+    }
+
+    49.99999%{
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 40%;
+        border-radius: 0 0 20% 20%;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 40%;
+        border-radius: 20% 0 0 20%;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 30%;
+        border-radius: 20% 0 0 20%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 40%;
+        border-radius: 20% 0 0 20%;
+    }
+}
+
+.home10a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: red;
+    top: 50%;
+    left: 40%;
+}
+
+.home10a.home10b {
+    animation-name: home-card10;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card11 {
+    0% {
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 50%;
+        border-radius: 0 20% 20% 0;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 60%;
+        border-radius: 0 20% 20% 0;
+    }
+
+    49.99999%{
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 50%;
+        border-radius: 0 20% 20% 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 50%;
+        border-radius: 0 0 20% 20%;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        top: 60%;
+        left: 50%;
+        border-radius: 0 0 20% 20%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        top: 50%;
+        left: 50%;
+        border-radius: 0 0 20% 20%;
+    }
+}
+
+.home11a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: red;
+    top: 50%;
+    left: 50%;
+}
+
+.home11a.home11b {
+    animation-name: home-card11;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card12 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 20% 0 0 0;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home12a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 50%;
+    left: 60%;
+    z-index: -1;
+}
+
+.home12a.home12b {
+    animation-name: home-card12;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card13 {
+    0% {
+        width: 10%;
+        height: 10%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home13a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+    top: 60%;
+    left: 30%;
+    z-index: -1;
+}
+
+.home13a.home13b {
+    animation-name: home-card13;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card14 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    75%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 20% 0 0;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home14a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 60%;
+    left: 40%;
+    z-index: -1;
+}
+
+.home14a.home14b {
+    animation-name: home-card14;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}
+
+@keyframes home-card15 {
+    0% {
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0 0 0 0;
+    }
+
+    25%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 20% 0 0 0;
+    }
+
+    50%{
+        width: 10%;
+        height: 10%;
+        background-color: black;
+        border-radius: 0%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+        border-radius: 0%;
+    }
+}
+
+.home15a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border-radius: 0 0 0 0;
+    background-color: black;
+    top: 60%;
+    left: 50%;
+    z-index: -1;
+}
+
+.home15a.home15b {
+    animation-name: home-card15;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+    border-radius: 0%;
+}
+
+@keyframes home-card16 {
+    0% {
+        width: 10%;
+        height: 10%;
+    }
+
+    100% {
+        width: 10%;
+        height: 10%;
+    }
+}
+
+.home16a {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background-color: black;
+    top: 60%;
+    left: 60%;
+    z-index: -1;
+}
+
+.home16a.home16b {
+    animation-name: home-card16;
+    animation-duration: var(--time);
+    animation-timing-function: ease-in-out;
+    width:0;
+    height:0;
+}

@@ -1,0 +1,10 @@
+.user-profile h4,.user-profile h2{
+    display: inline-block;
+    animation-name: user-profile-heading;
+    animation-duration: 1.5s;
+}
+
+@keyframes user-profile-heading{
+    0%{clip-path: polygon(0% 0%,0% 0%,0% 100%,0% 100%);}
+    100%{clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 100%);}
+}

@@ -1,0 +1,30 @@
+.light-triangle {
+    /* clip-path: polygon(50% 10%, 30% 100%, 70% 100%); */
+    clip-path: polygon(45.6% 7.2%, 48% 6.75%, 52% 6.75%, 54.4% 7.2%, 70% 100%, 30% 100%);
+    background-image: radial-gradient(circle at 50% 0%, rgb(254, 199, 12, 0.6), rgb(254, 199, 12, 0));
+    z-index: 2;
+}
+
+.light {
+    background-image: radial-gradient(rgb(255, 225, 128, 0.8), rgba(183, 161, 91, 0.6), rgba(0, 0, 0, 0.2), rgb(0, 0, 0, 0));
+    z-index: 1;
+}
+
+.light-circle {
+    background-image: radial-gradient(ellipse, #FFEAD8, #FDCC25);
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.home-light {
+    opacity: 0;
+    /* transition: opacity 2s cubic-bezier(.29, 1.01, 1, -0.68); */
+    /* transition: opacity 1.5s cubic-bezier(0,1.91,1,-0.94); */
+    /* transition: opacity 1.5s cubic-bezier(.53,1.56,1,-0.74); */
+    /* transition: opacity 1.5s cubic-bezier(1,1.24,1,-0.74); */
+    transition: opacity 1.5s cubic-bezier(.37, 1.12, 1, -0.25);
+}
+
+.home-light.home-light2 {
+    opacity: 1;
+}

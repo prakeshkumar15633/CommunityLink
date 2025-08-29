@@ -1,0 +1,105 @@
+POST http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"rahul",
+    "email":"rahul@gmail.com",
+    "password":"rahul",
+    "community":[],
+    "userType":"security",
+    "visitor":[]
+}
+
+###
+POST http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+    "username":"ravi",
+    "password":"ravi"
+}
+
+###
+PUT http://localhost:4000/user-api/community/resident
+Content-Type: application/json
+
+{
+    "username":"vikas",
+    "id":"1714404642",
+    "passwordResident":"praneeth",
+    "houseNo":30
+}
+
+###
+PUT http://localhost:4000/user-api/discussion-forum/comment
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714473402",
+    "username":"vikas",
+    "userType":"resident",
+    "comment":"Hey everyone, voice your opinions regarding this matter here",
+    "time":"{{$datetime iso8601}}"
+}
+
+###
+PUT http://localhost:4000/user-api/poll/
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714486839",
+    "option":"service",
+    "username":"ravi"
+}
+
+###
+PUT http://localhost:4000/user-api/volunteer
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714492642",
+    "username":"ravi"
+}
+
+###
+PUT http://localhost:4000/user-api/feedback
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "username":"vikas",
+    "comment":"Some painting works needed at the kids park",
+    "time":"{{$datetime iso8601}}"
+}
+
+
+###
+GET http://localhost:4000/user-api/visitor/ravi
+###
+PUT http://localhost:4000/user-api/visitor
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "name":"sahil",
+    "phno":9204740393,
+    "houseNo":28,
+    "status":1
+}
+
+###
+PUT http://localhost:4000/user-api/book-slot
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714557295",
+    "details":{
+        "username":"ravi",
+        "date":"2024-05-22",
+        "slot":21
+    }
+}

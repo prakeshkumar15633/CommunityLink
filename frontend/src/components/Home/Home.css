@@ -1,0 +1,28 @@
+.home-card-1 {
+    /* background: linear-gradient(rgb(0, 0, 0, 1) 0%, 10%, rgb(0, 0, 0, 0) 90%, 95%, rgb(0, 0, 0, 1) 100%), radial-gradient(circle at 25% 0%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.75)), url('../../assets/home1.jpg'); */
+    background-image: radial-gradient(circle at 25% 0%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 1)), url('../../assets/home1.jpg');
+    /* background-blend-mode: screen, screen, lighten; */
+    background-size: cover;
+    z-index: -1;
+}
+
+.home-card-2 {
+    /* background: linear-gradient(rgb(0, 0, 0, 1) 0%, 10%, rgb(0, 0, 0, 0) 90%, 95%, rgb(0, 0, 0, 1) 100%), radial-gradient(circle at 150%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.75)), url('../../assets/home2.jpg'); */
+    background-image: radial-gradient(circle at 150%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 1)), url('../../assets/home2.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+.home-card-3 {
+    /* background: linear-gradient(rgb(0, 0, 0, 1) 0%, 10%, rgb(0, 0, 0, 0) 90%, 95%, rgb(0, 0, 0, 1) 100%), radial-gradient(circle at -50%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.75)), url('../../assets/home3.jpg'); */
+    background-image: radial-gradient(circle at -50%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 1)), url('../../assets/home3.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+.home-card-4 {
+    /* background-image: linear-gradient(rgb(0, 0, 0, 1) 0%, 10%, rgb(0, 0, 0, 0) 90%, 95%, rgb(0, 0, 0, 1) 100%), radial-gradient(circle at 155%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 0.75)), url('../../assets/home4.jpg'); */
+    background-image: radial-gradient(circle at 155%, rgb(0, 0, 0, 0), rgb(0, 0, 0, 0), rgb(0, 0, 0, 1)), url('../../assets/home4.jpg');
+    background-size: cover;
+    z-index: -1;
+}
