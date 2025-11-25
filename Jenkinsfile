@@ -25,8 +25,8 @@ pipeline {
                 withEnv(["KUBECONFIG=C:\\ProgramData\\Jenkins\\.jenkins\\.kube\\config"]) {
 
                     bat "kubectl apply -f k8s/namespace.yaml"
-                    bat "kubectl apply -f k8s/deployment.yaml"
-                    bat "kubectl apply -f k8s/service.yaml"
+                    bat "kubectl apply -f k8s/deployment.yaml -n communitylink-ns"
+                    bat "kubectl apply -f k8s/service.yaml -n communitylink-ns"
                 }
             }
         }

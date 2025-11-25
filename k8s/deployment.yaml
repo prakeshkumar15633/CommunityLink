@@ -16,6 +16,7 @@ spec:
       containers:
         - name: communitylink-container
           image: communitylink-image:latest
+          
           ports:
             - containerPort: 4000
           env:
