@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getCommunityThunk = createAsyncThunk("get-community", async (arr, thunkApi) => {
     try {
-        const res = await axios.put('http://localhost:31777/com-admin-api/get-community', { arr: arr });
+        const res = await axios.put('http://localhost:31818/com-admin-api/get-community', { arr: arr });
         if (res.data.message !== "Community") {
             return thunkApi.rejectWithValue(res.data.message);
         }

@@ -4,7 +4,7 @@ import axios from "axios";
 export const visitorThunk = createAsyncThunk("visitor-data", async (username, thunkApi) => {
     try {
         const res = await axios.get(
-            `http://localhost:31777/user-api/visitor/${username}`
+            `http://localhost:31818/user-api/visitor/${username}`
         );
         return res.data.payload;
     } catch (err) {
