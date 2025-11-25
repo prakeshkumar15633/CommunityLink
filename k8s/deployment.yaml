@@ -16,7 +16,7 @@ spec:
       containers:
         - name: communitylink-container
           image: communitylink-image:latest
-          
+          imagePullPolicy: Never
           ports:
             - containerPort: 4000
           env:
