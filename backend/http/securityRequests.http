@@ -1,0 +1,29 @@
+PUT http://localhost:4000/security-api/community/security
+Content-Type: application/json
+
+{
+    "username":"rahul",
+    "id":"1714404642",
+    "passwordSecurity":"praneeth",
+    "userType":"security"
+}
+
+###
+PUT http://localhost:4000/security-api/visitor
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "name":"sahil",
+    "phno":9204740393,
+    "houseNo":28
+}
+
+###
+PUT http://localhost:4000/security-api/visitor/delete
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "houseNo": 28
+}

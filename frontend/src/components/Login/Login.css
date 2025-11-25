@@ -1,0 +1,203 @@
+:root {
+    --signtime: 1.4s;
+}
+
+.login{
+    background-color: gray;
+    padding-top: 5vh;
+}
+
+.sign-backa {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background-image: linear-gradient(-45deg, #df4adf, #520852);
+}
+
+@keyframes sign-backb {
+    0% {
+        width: 50%;
+        left: 50%;
+ 
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 50%;
+        left: 0;
+    }
+}
+
+.sign-backa.sign-backb {
+    animation-name: sign-backb;
+    animation-duration: var(--signtime);
+    left: 0;
+}
+
+@keyframes sign-backc {
+    0% {
+        width: 50%;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 50%;
+        left: 50%;
+    }
+}
+
+.sign-backa.sign-backc {
+    animation-name: sign-backc;
+    animation-duration: var(--signtime);
+    left: 50%;
+}
+
+.sign{
+    background-image: linear-gradient(135deg,rgb(242, 242, 242),rgb(248, 249, 250));
+}
+
+.signina {
+    opacity: 0;
+}
+
+@keyframes signinb {
+    0% {
+        opacity: 0;
+    }
+
+    66.666%{
+        opacity:0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.signina.signinb {
+    animation-name: signinb;
+    animation-duration: calc(var(--signtime) + calc(var(--signtime) / 2));
+    opacity: 1;
+}
+
+.signupa {
+    opacity: 0;
+}
+
+@keyframes signupb {
+    0% {
+        opacity: 0;
+    }
+
+    66.666%{
+        opacity:0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.signupa.signupb {
+    animation-name: signupb;
+    animation-duration: calc(var(--signtime) + calc(var(--signtime) / 2));
+    opacity: 1;
+}
+
+.signin-text1a{
+    position:absolute;
+    width:50%;
+    top:45%;
+    left:50%;
+}
+
+@keyframes signin-text1b {
+    0%{
+        left:50%;
+    }
+    50%{
+        left:50%;
+    }
+    100%{
+        left:100%;
+    }
+}
+
+.signin-text1a.signin-text1b{
+    animation-name: signin-text1b;
+    animation-duration: var(--signtime);
+    animation-direction: alternate;
+    left:100%;
+}
+
+@keyframes signin-text1c {
+    0%{
+        left:100%;
+    }
+    50%{
+        left:100%;
+    }
+    100%{
+        left:50%;
+    }
+}
+
+.signin-text1a.signin-text1c{
+    animation-name: signin-text1c;
+    animation-duration: var(--signtime);
+    left:50%;
+}
+
+.signup-text1a{
+    position:absolute;
+    width:50%;
+    top:45%;
+    left:0%;
+}
+
+@keyframes signup-text1b {
+    0%{
+        left:0%;
+    }
+    50%{
+        left:0%;
+    }
+    100%{
+        left:-50%;
+    }
+}
+
+.signup-text1a.signup-text1b{
+    animation-name: signup-text1b;
+    animation-duration: var(--signtime);
+    left:-50%;
+}
+
+@keyframes signup-text1c {
+    0%{
+        left:-50%;
+    }
+    50%{
+        left:-50%;
+    }
+    100%{
+        left:0%;
+    }
+}
+
+.signup-text1a.signup-text1c{
+    animation-name: signup-text1c;
+    animation-duration: var(--signtime);
+    left:0%;
+}

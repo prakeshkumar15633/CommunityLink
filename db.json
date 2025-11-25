@@ -1,0 +1,33 @@
+{
+    "users": [
+        {
+            "username": "ravi",
+            "email": "ravi@gmail.com",
+            "password": "$2a$06$7PoRNw7b9kA8P.n9AFjC6Ob.a/8UrWirwQyeW/ZbVbyjNpx0lxkmK",
+            "community": [
+                "1714404642"
+            ],
+            "userType": "resident"
+        },
+        {
+            "username": "vikas",
+            "email": "vikas@gmail.com",
+            "password": "$2a$06$GsQ/BFHTAj2CL8/MmryqoeqexSJCTFywI9iygVtX/xpuietvW0C5m",
+            "community": [
+                "1714404642"
+            ],
+            "userType": "resident",
+            "visitor": {}
+        },
+        {
+            "username": "rahul",
+            "email": "rahul@gmail.com",
+            "password": "$2a$06$tL4RrOWjNma1Eey.9zIfgOigNgerXPD52sU/18BGS9HxULGmEWgDa",
+            "community": [
+                "1714404642"
+            ],
+            "userType": "security",
+            "visitor": {}
+        }
+    ]
+}

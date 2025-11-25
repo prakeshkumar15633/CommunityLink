@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/39663961/how-do-you-send-images-to-node-js-with-axios
+https://www.bezkoder.com/node-js-upload-store-images-mongodb/
+https://www.restack.io/docs/strapi-knowledge-strapi-rest-api-upload-image

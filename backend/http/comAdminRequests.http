@@ -1,0 +1,213 @@
+POST http://localhost:4000/com-admin-api/community
+Content-Type: application/json
+
+{
+    "id":"{{$timestamp}}",
+    "passwordResident":"praneeth",
+    "passwordSecurity":"praneeth",
+    "name":"Praneeth Pranav Enclave",
+    "houseType":"villa",
+    "houseCount":400,
+    "address":{
+        "area":"bachupally",
+        "city":"hyderabad",
+        "state":"telangana",
+        "country":"india"
+    },
+    "guidelines":"Property upkeep: Residents are expected to maintain their properties in a clean and tidy manner, including regular lawn care and removal of debris.$Parking regulations: Park vehicles only in designated areas and adhere to any specified parking restrictions to ensure accessibility and safety for all residents.$Waste management: Dispose of trash and recycling properly in designated bins, and refrain from littering or dumping items in common areas.$Pet policies: Keep pets under control at all times, clean up after them, and adhere to leash laws when walking them within the community.$Compliance with local laws: Abide by all applicable laws and regulations, including those related to noise, public disturbances, and property use, to maintain a peaceful and law-abiding community.",
+    "admins":[{
+        "username":"ravi",
+        "houseNo":28
+    }],
+    "residents":[{
+        "username":"ravi",
+        "houseNo":28
+    }],
+    "security":[],
+    "announcements":[],
+    "events":[],
+    "lostItems":[]
+}
+
+###
+# GET http://localhost:4000/com-admin-api/get-community/1714404642
+
+###
+PUT http://localhost:4000/com-admin-api/get-community
+Content-Type: application/json
+
+{
+    "arr":["1714404642","1714717842"]
+}
+
+###
+PUT http://localhost:4000/com-admin-api/guidelines/edit
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "index":0,
+    "guideline":"Property upkeep: Residents are expected to maintain their properties in a clean and tidy manner, including regular lawn care and removal of debris."
+}
+
+###
+PUT http://localhost:4000/com-admin-api/guidelines/add
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "guideline":"hahaa"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/guidelines/delete
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "index":5
+}
+
+###
+PUT http://localhost:4000/com-admin-api/new-admin
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "username":"vikas"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/announcement
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "username":"ravi",
+    "announcement":"Work in progress at road no.3",
+    "time":"{{$datetime iso8601}}"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/announcement/edit
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "index":0,
+    "announcement":"Community gates will be closed by 11.30pm today. Please carry a spare key in case of late arrival."
+}
+
+###
+PUT http://localhost:4000/com-admin-api/announcement/delete
+Content-Type: application/json
+
+{
+    "id":"1714404642",
+    "index":3
+}
+
+###
+PUT http://localhost:4000/com-admin-api/discussion-forum
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"{{$timestamp}}",
+    "username":"ravi",
+    "topic":"Opinion needed regarding the planning of a new community hall",
+    "comments":[],
+    "time":"{{$datetime iso8601}}"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/discussion-forum/delete
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "index":2
+}
+
+###
+PUT http://localhost:4000/com-admin-api/poll
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"{{$timestamp}}",
+    "username":"ravi",
+    "question":"Vote for the type of dinner you wish for ganesh chaturthi",
+    "options":{
+        "service":0,
+        "buffet":0,
+    },
+    "voted":[],
+    "time":"{{$datetime iso8601}}"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/poll/delete
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714487235"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/business
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"{{$timestamp}}",
+    "username":"vikas",
+    "shopName":"Venkateswara Grocery Store",
+    "shopNo":5
+}
+
+###
+PUT http://localhost:4000/com-admin-api/business/delete
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714488132"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/event
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"{{$timestamp}}",
+    "hostUsername":"ravi",
+    "eventName":"Ganesh Chaturthi",
+    "date":"06-04-2024",
+    "type":"public",
+    "venue":"community hall",
+    "volunteer":[]
+}
+
+###
+PUT http://localhost:4000/com-admin-api/event/delete
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"1714492007"
+}
+
+###
+PUT http://localhost:4000/com-admin-api/sports
+Content-Type: application/json
+
+{
+    "cid":"1714404642",
+    "id":"{{$timestamp}}",
+    "name":"Badminton",
+    "noOfCourts":2,
+    "slots":[]
+}

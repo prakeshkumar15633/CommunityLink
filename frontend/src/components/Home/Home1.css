@@ -1,0 +1,215 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --time_rotate: 3s;
+}
+
+.home-card-1a{
+    opacity:0;
+    scale: 0.8;
+    padding-top: 50px;
+    transition: opacity 0.5s, scale 0.4s, padding-top 0.5s;
+}
+
+.home-card-1a.home-card-1b{
+    scale:1;
+    opacity:1;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.home-card-2a{
+    opacity:0;
+    scale: 0.8;
+    padding-top: 50px;
+    transition: opacity 0.5s, scale 0.4s, padding-top 0.5s;
+}
+
+.home-card-2a.home-card-2b{
+    scale:1;
+    opacity:1;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.home-card-3a{
+    opacity:0;
+    scale: 0.8;
+    padding-top: 50px;
+    transition: opacity 0.5s, scale 0.4s, padding-top 0.5s;
+}
+
+.home-card-3a.home-card-3b{
+    scale:1;
+    opacity:1;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.home-card-4a{
+    opacity:0;
+    scale: 0.8;
+    padding-top: 50px;
+    transition: opacity 0.5s, scale 0.4s, padding-top 0.5s;
+}
+
+.home-card-4a.home-card-4b{
+    scale:1;
+    opacity:1;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.shape1b{
+    width:100%;
+    animation-name: rotate1;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate1 {
+    0%{
+        rotate: 0deg
+    }
+    100%{
+        rotate: 360deg
+    }
+}
+
+@keyframes shift{
+    0%{
+        top:-4.5%;
+        left:-4%;
+    }
+    5%{
+        top:-4.5%;
+        left:-4%;
+    }
+    28.3333%{
+        top:20%;
+        left:50%;
+    }
+    33.3333%{
+        top:20%;
+        left:50%;
+    }
+
+    38.3333%{
+        top:20%;
+        left:50%;
+    }
+    61.6666%{
+        top:45%;
+        left:-4%;
+    }
+    66.6666%{
+        top:45%;
+        left:-4%;
+    }
+    71.3333%{
+        top:45%;
+        left:-4%;
+    }
+    95%{
+        top:70%;
+        left:50%
+    }
+    100%{
+        top:70%;
+        left:50%
+    }
+}
+
+.shape1a{
+    width:50%;
+    top:-4.5%;
+    left:-4%;
+    animation-name: shift;
+    animation-timeline: scroll(root);
+}
+
+/* .shape2a{
+    width:50%;
+    top:0%;
+    left:-25%;
+    rotate: 30deg;
+    animation-name: rotate2;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate2 {
+    0%{
+        rotate: 30deg;
+    }
+    100%{
+        rotate: 390deg;
+    }
+}
+
+.shape2b{
+    animation-name: rotate2;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.shape3a{
+    width: 40%;
+    top:2.5%;
+    left:-20%;
+    rotate: 60deg;
+    animation-name: rotate3;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate3 {
+    0%{
+        rotate: 60deg;
+    }
+    100%{
+        rotate: 420deg;
+    }
+}
+
+.shape3b{
+    animation-name: rotate3;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.shape4a{
+    width: 30%;
+    top:5%;
+    left:-15%;
+    rotate:90deg;
+    animation-name: rotate4;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes rotate4 {
+    0%{
+        rotate: 90deg;
+    }
+    100%{
+        rotate: 450deg;
+    }
+}
+
+.shape4b{
+    animation-name: rotate4;
+    animation-duration: var(--time_rotate);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+} */
