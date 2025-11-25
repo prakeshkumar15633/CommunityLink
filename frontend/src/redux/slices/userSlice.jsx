@@ -4,7 +4,7 @@ import axios from "axios";
 export const userLoginThunk = createAsyncThunk("user-login", async (userCredObj, thunkApi) => {
     try {
         const res = await axios.post(
-            "http://localhost:4000/user-api/login",
+            "http://localhost:32000/user-api/login",
             userCredObj
         );
         if (res.data.message === "Login successful") {
