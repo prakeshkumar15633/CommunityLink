@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const userLoginThunk = createAsyncThunk("user-login", async (userCredObj, thunkApi) => {
     try {
+        console.log("reached here")
         const res = await axios.post(
             "http://localhost:32000/user-api/login",
             userCredObj
